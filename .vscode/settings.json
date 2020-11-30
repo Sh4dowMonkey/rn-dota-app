@@ -1,0 +1,8 @@
+{
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "javascript.validate.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
