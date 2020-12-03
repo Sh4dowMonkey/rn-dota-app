@@ -14,12 +14,11 @@ const Attribute = (props) => {
     transform: [{rotate: '45deg'}],
   };
 
-  console.log('props: ', props);
-
   return (
     <View style={styles.attributes}>
       <View style={colorIndicator} />
       <Text style={styles.text}> {props.name} </Text>
+      <Text style={styles.text}> {props.attributeStat} </Text>
     </View>
   );
 };

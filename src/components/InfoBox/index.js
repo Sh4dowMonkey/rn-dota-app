@@ -13,7 +13,7 @@ const InfoBox = (props) => {
   console.log('props: ', props);
 
   return (
-    <View style={[styles.infoBox]}>
+    <View style={styles.infoBox}>
       <Text style={text.myStyle}> {props.title} </Text>
       <Text style={text.myStyle}> {props.stat} </Text>
     </View>
@@ -22,8 +22,6 @@ const InfoBox = (props) => {
 
 const styles = StyleSheet.create({
   infoBox: {
-    // flexWrap: 'wrap',
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     height: 150,
