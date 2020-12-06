@@ -61,50 +61,50 @@ const Hero = (props) => {
             </Text>
           </View>
           <Attribute
-            color={props.attributeColor[0]}
-            bgColor={props.strBgColor}
-            name={props.attribute[0]}
-            attributeStat={props.attributeStats[0]}
+            color={props.attribute[0].color}
+            name={props.attribute[0].name}
+            attributeStat={props.attribute[0].stat}
+            fill={props.attribute[0].fill}
           />
           <Attribute
-            color={props.attributeColor[1]}
-            bgColor={props.intBgColor}
-            name={props.attribute[1]}
-            attributeStat={props.attributeStats[1]}
+            color={props.attribute[1].color}
+            name={props.attribute[1].name}
+            attributeStat={props.attribute[1].stat}
+            fill={props.attribute[1].fill}
           />
           <Attribute
-            color={props.attributeColor[2]}
-            bgColor={props.agiBgColor}
-            name={props.attribute[2]}
-            attributeStat={props.attributeStats[2]}
+            color={props.attribute[2].color}
+            name={props.attribute[2].name}
+            attributeStat={props.attribute[2].stat}
+            fill={props.attribute[2].fill}
           />
           <View style={styles.container}>
             <Text> Stats </Text>
           </View>
           <View style={styles.infoBoxContainer}>
             <InfoBox
-              title={props.infoBoxTitles[0]}
-              stat={props.infoBoxStats[0]}
+              title={props.infoBox[0].title}
+              stat={props.infoBox[0].stat}
             />
             <InfoBox
-              title={props.infoBoxTitles[1]}
-              stat={props.infoBoxStats[1]}
+              title={props.infoBox[1].title}
+              stat={props.infoBox[1].stat}
             />
             <InfoBox
-              title={props.infoBoxTitles[2]}
-              stat={props.infoBoxStats[2]}
+              title={props.infoBox[2].title}
+              stat={props.infoBox[2].stat}
             />
             <InfoBox
-              title={props.infoBoxTitles[3]}
-              stat={props.infoBoxStats[3]}
+              title={props.infoBox[3].title}
+              stat={props.infoBox[3].stat}
             />
             <InfoBox
-              title={props.infoBoxTitles[4]}
-              stat={props.infoBoxStats[4]}
+              title={props.infoBox[4].title}
+              stat={props.infoBox[4].stat}
             />
             <InfoBox
-              title={props.infoBoxTitles[5]}
-              stat={props.infoBoxStats[5]}
+              title={props.infoBox[5].title}
+              stat={props.infoBox[5].stat}
             />
           </View>
         </ScrollView>
