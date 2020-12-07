@@ -5,7 +5,7 @@ import {View, Text, StyleSheet} from 'react-native';
 
 const Attribute = (props) => {
   const colorIndicator = {
-    backgroundColor: props.fill === true ? props.color : 'transparent',
+    backgroundColor: props.fill ? props.color : 'transparent',
     borderColor: props.color,
     height: 30,
     width: 30,

@@ -47,12 +47,6 @@ const Hero = (props) => {
               source={{uri: 'https://api.opendota.com' + props.image}}
             />
           </View>
-          {/* <Image
-            style={styles.image}
-            source={{
-              uri: 'https://reactnative.dev/img/tiny_logo.png',
-            }}
-          /> */}
           <View style={styles.text}>
             <Text> {props.name} </Text>
             <Text>
