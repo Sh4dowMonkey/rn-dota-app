@@ -15,7 +15,11 @@ const HeroListComponent = (props) => {
           numColumns={2}
           keyExtractor={({id}, index) => id}
           renderItem={({item}) => (
-            <InfoBox title={item.localized_name} stat={item.roles.join(', ')} />
+            <InfoBox
+              title={item.localized_name}
+              stat={item.roles.join(', ')}
+              backgroundImage={'https://api.opendota.com' + item.img}
+            />
           )}
         />
       )}
