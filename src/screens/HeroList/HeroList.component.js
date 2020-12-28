@@ -1,34 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, Text, View} from 'react-native';
+import React from 'react';
+import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import InfoBox from '../../components/InfoBox';
 
-const HeroListComponent = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('https://api.opendota.com/api/heroStats')
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
-
+const HeroListComponent = (props) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-      }}>
-      {isLoading ? (
+    <View style={styles.page}>
+      {props.isLoading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         <FlatList
-          style={{
-            width: '100%',
-          }}
-          contentContainerStyle={{alignItems: 'center'}}
-          data={data}
+          style={styles.flatlist}
+          contentContainerStyle={styles.contentContainerStyle}
+          data={props.data}
           numColumns={2}
           keyExtractor={({id}, index) => id}
           renderItem={({item}) => (
@@ -39,5 +22,16 @@ const HeroListComponent = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  flatlist: {
+    width: '100%',
+  },
+  contentContainerStyle: {alignItems: 'center'},
+});
 
 export default HeroListComponent;
