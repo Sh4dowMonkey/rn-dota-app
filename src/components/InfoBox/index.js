@@ -10,8 +10,6 @@ const InfoBox = (props) => {
     },
   };
 
-  console.log('props: ', props);
-
   return (
     <View style={styles.infoBox}>
       <Text style={text.myStyle}> {props.title} </Text>

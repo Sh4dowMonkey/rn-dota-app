@@ -1,12 +1,6 @@
 import React from 'react';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {
   View,
@@ -32,7 +26,7 @@ import InfoBox from '../../components/InfoBox';
 //   stat: props.stat,
 // }
 
-const Hero = (props) => {
+const HeroComponent = (props) => {
   console.log('https://api.opendota.com' + props.image);
   return (
     <>
@@ -51,7 +45,7 @@ const Hero = (props) => {
             <Text> {props.name} </Text>
             <Text>
               {' '}
-              {props.attackType}, {props.roles}{' '}
+              {props.attackType}, {props.roles.join(', ')}{' '}
             </Text>
           </View>
           <Attribute
@@ -145,4 +139,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Hero;
+export default HeroComponent;

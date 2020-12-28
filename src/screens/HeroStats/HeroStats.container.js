@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Hero from './HeroStats.component';
+import HeroComponent from './HeroStats.component';
 
 let hero = {
   id: 1,
@@ -70,9 +70,9 @@ const infoBox = [
   {title: 'Base Mana', stat: hero.base_mana},
 ];
 
-const HeroScreen = () => {
+const HeroContainer = () => {
   return (
-    <Hero
+    <HeroComponent
       name={hero.localized_name}
       image={hero.img}
       attackType={hero.attack_type}
@@ -83,4 +83,4 @@ const HeroScreen = () => {
   );
 };
 
-export default HeroScreen;
+export default HeroContainer;

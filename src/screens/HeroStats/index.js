@@ -1,3 +1,3 @@
-import HeroScreenData from './HeroStats.container';
+import HeroStats from './HeroStats.container';
 
-export default HeroScreenData;
+export default HeroStats;
