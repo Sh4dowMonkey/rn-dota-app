@@ -26,8 +26,19 @@ import InfoBox from '../../components/InfoBox';
 //   stat: props.stat,
 // }
 
+const armorBG =
+  'https://previews.123rf.com/images/andreykuzmin/andreykuzmin1512/andreykuzmin151200001/49591664-grunge-metal-scales-armor-background.jpg';
+const movementSpeedBG =
+  'https://www.epicpath.org/images/thumb/3/3b/Feet_Slot_1.jpg/450px-Feet_Slot_1.jpg';
+const attackSpeedBG =
+  'https://www.skinwallet.com/dota-2/wp-content/uploads/sites/4/2020/01/Cosmetic_icon_Crimson_Edge_of_the_Lost_Order-1.png';
+const attackRangeBG =
+  'https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/570d0779-1b07-4af7-baad-3cda71f67122';
+const baseHealthBG =
+  'https://i.pinimg.com/564x/7f/65/5d/7f655de1f84a5cf7f4cfbab6b999d979.jpg';
+const baseManaBG = require('../../images/baseManaBG.jpg');
+
 const HeroComponent = (props) => {
-  console.log('https://api.opendota.com' + props.image);
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -73,26 +84,32 @@ const HeroComponent = (props) => {
             <InfoBox
               title={props.infoBox[0].title}
               stat={props.infoBox[0].stat}
+              backgroundImage={{uri: armorBG}}
             />
             <InfoBox
               title={props.infoBox[1].title}
               stat={props.infoBox[1].stat}
+              backgroundImage={{uri: movementSpeedBG}}
             />
             <InfoBox
               title={props.infoBox[2].title}
               stat={props.infoBox[2].stat}
+              backgroundImage={{uri: attackSpeedBG}}
             />
             <InfoBox
               title={props.infoBox[3].title}
               stat={props.infoBox[3].stat}
+              backgroundImage={{uri: attackRangeBG}}
             />
             <InfoBox
               title={props.infoBox[4].title}
               stat={props.infoBox[4].stat}
+              backgroundImage={{uri: baseHealthBG}}
             />
             <InfoBox
               title={props.infoBox[5].title}
               stat={props.infoBox[5].stat}
+              backgroundImage={baseManaBG}
             />
           </View>
         </ScrollView>

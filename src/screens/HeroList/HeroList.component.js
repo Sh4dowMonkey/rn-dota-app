@@ -1,5 +1,11 @@
 import React from 'react';
-import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  View,
+  Pressable,
+} from 'react-native';
 import InfoBox from '../../components/InfoBox';
 
 const HeroListComponent = (props) => {
@@ -15,11 +21,16 @@ const HeroListComponent = (props) => {
           numColumns={2}
           keyExtractor={({id}, index) => id}
           renderItem={({item}) => (
-            <InfoBox
-              title={item.localized_name}
-              stat={item.roles.join(', ')}
-              backgroundImage={'https://api.opendota.com' + item.img}
-            />
+            <Pressable
+              onPress={() => {
+                props.onHeroPress(item);
+              }}>
+              <InfoBox
+                title={item.localized_name}
+                stat={item.roles.join(', ')}
+                backgroundImage={{uri: 'https://api.opendota.com' + item.img}}
+              />
+            </Pressable>
           )}
         />
       )}

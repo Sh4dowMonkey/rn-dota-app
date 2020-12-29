@@ -4,8 +4,7 @@ import React from 'react';
 import {View, Text, StyleSheet, ImageBackground} from 'react-native';
 
 const InfoBox = (props) => {
-  const src = {uri: props.backgroundImage};
-
+  const src = props.backgroundImage;
   return (
     <ImageBackground style={styles.infoBox} source={src}>
       <View style={styles.overlay}>
