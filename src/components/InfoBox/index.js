@@ -1,40 +1,32 @@
 // @flow
 
 import React from 'react';
-import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground} from 'react-native';
+import styles from './styles';
+
+const normal = {
+  overlay: styles.overlayNormal,
+  text: styles.textNormal,
+  subtitle: styles.textNormal,
+};
+
+const highlight = {
+  overlay: styles.overlayHighlight,
+  text: styles.textHighlight,
+  subtitle: styles.subtitle,
+};
 
 const InfoBox = (props) => {
   const src = props.backgroundImage;
+  const style = props.highlight ? highlight : normal;
   return (
     <ImageBackground style={styles.infoBox} source={src}>
-      <View style={styles.overlay}>
-        <Text style={styles.text}> {props.title} </Text>
-        <Text style={styles.text}> {props.stat} </Text>
+      <View style={style.overlay}>
+        <Text style={style.text}>{props.title}</Text>
+        <Text style={style.subtitle}>{props.stat}</Text>
       </View>
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  infoBox: {
-    height: 150,
-    width: 150,
-    margin: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    overflow: 'hidden',
-  },
-  text: {
-    textAlign: 'center',
-    color: 'white',
-  },
-  overlay: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 5,
-  },
-});
 
 export default InfoBox;

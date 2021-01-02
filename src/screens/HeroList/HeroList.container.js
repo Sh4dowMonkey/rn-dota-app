@@ -1,4 +1,3 @@
-import {useLinkProps} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {InteractionManager} from 'react-native';
 
@@ -27,7 +26,6 @@ const HeroListContainer = (props) => {
       isLoading={isLoading}
       data={data}
       onHeroPress={onHeroPress}
-      // navigation={props.navigation}
     />
   );
 };

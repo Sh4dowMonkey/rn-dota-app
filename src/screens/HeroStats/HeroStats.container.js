@@ -1,9 +1,14 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect} from 'react';
 
 import HeroComponent from './HeroStats.component';
 
 const HeroContainer = (props) => {
   const hero = props.route.params;
+
+  useEffect(() => {
+    props.navigation.setOptions({title: hero.localized_name});
+  }, [hero]);
 
   const attributes = [
     {
@@ -37,7 +42,6 @@ const HeroContainer = (props) => {
 
   return (
     <HeroComponent
-      name={hero.localized_name}
       image={hero.img}
       attackType={hero.attack_type}
       roles={hero.roles}

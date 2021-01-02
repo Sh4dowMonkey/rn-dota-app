@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import colors from '../../config/colors';
 
 import {
   View,
@@ -9,7 +9,7 @@ import {
   StatusBar,
   SafeAreaView,
   ScrollView,
-  Image,
+  ImageBackground,
 } from 'react-native';
 
 import Attribute from '../../components/Attribute';
@@ -26,16 +26,26 @@ import InfoBox from '../../components/InfoBox';
 //   stat: props.stat,
 // }
 
-const armorBG =
-  'https://previews.123rf.com/images/andreykuzmin/andreykuzmin1512/andreykuzmin151200001/49591664-grunge-metal-scales-armor-background.jpg';
-const movementSpeedBG =
-  'https://www.epicpath.org/images/thumb/3/3b/Feet_Slot_1.jpg/450px-Feet_Slot_1.jpg';
-const attackSpeedBG =
-  'https://www.skinwallet.com/dota-2/wp-content/uploads/sites/4/2020/01/Cosmetic_icon_Crimson_Edge_of_the_Lost_Order-1.png';
-const attackRangeBG =
-  'https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/570d0779-1b07-4af7-baad-3cda71f67122';
-const baseHealthBG =
-  'https://i.pinimg.com/564x/7f/65/5d/7f655de1f84a5cf7f4cfbab6b999d979.jpg';
+const armorBG = {
+  uri:
+    'https://previews.123rf.com/images/andreykuzmin/andreykuzmin1512/andreykuzmin151200001/49591664-grunge-metal-scales-armor-background.jpg',
+};
+const movementSpeedBG = {
+  uri:
+    'https://www.epicpath.org/images/thumb/3/3b/Feet_Slot_1.jpg/450px-Feet_Slot_1.jpg',
+};
+const attackSpeedBG = {
+  uri:
+    'https://www.skinwallet.com/dota-2/wp-content/uploads/sites/4/2020/01/Cosmetic_icon_Crimson_Edge_of_the_Lost_Order-1.png',
+};
+const attackRangeBG = {
+  uri:
+    'https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/570d0779-1b07-4af7-baad-3cda71f67122',
+};
+const baseHealthBG = {
+  uri:
+    'https://i.pinimg.com/564x/7f/65/5d/7f655de1f84a5cf7f4cfbab6b999d979.jpg',
+};
 const baseManaBG = require('../../images/baseManaBG.jpg');
 
 const HeroComponent = (props) => {
@@ -47,14 +57,13 @@ const HeroComponent = (props) => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.container}>
-            <Image
+            <ImageBackground
               style={styles.image}
               source={{uri: 'https://api.opendota.com' + props.image}}
             />
           </View>
-          <View style={styles.text}>
-            <Text> {props.name} </Text>
-            <Text>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>
               {' '}
               {props.attackType}, {props.roles.join(', ')}{' '}
             </Text>
@@ -78,33 +87,33 @@ const HeroComponent = (props) => {
             fill={props.attribute[2].fill}
           />
           <View style={styles.container}>
-            <Text> Stats </Text>
+            <Text style={styles.text}> Stats </Text>
           </View>
           <View style={styles.infoBoxContainer}>
             <InfoBox
               title={props.infoBox[0].title}
               stat={props.infoBox[0].stat}
-              backgroundImage={{uri: armorBG}}
+              backgroundImage={armorBG}
             />
             <InfoBox
               title={props.infoBox[1].title}
               stat={props.infoBox[1].stat}
-              backgroundImage={{uri: movementSpeedBG}}
+              backgroundImage={movementSpeedBG}
             />
             <InfoBox
               title={props.infoBox[2].title}
               stat={props.infoBox[2].stat}
-              backgroundImage={{uri: attackSpeedBG}}
+              backgroundImage={attackSpeedBG}
             />
             <InfoBox
               title={props.infoBox[3].title}
               stat={props.infoBox[3].stat}
-              backgroundImage={{uri: attackRangeBG}}
+              backgroundImage={attackRangeBG}
             />
             <InfoBox
               title={props.infoBox[4].title}
               stat={props.infoBox[4].stat}
-              backgroundImage={{uri: baseHealthBG}}
+              backgroundImage={baseHealthBG}
             />
             <InfoBox
               title={props.infoBox[5].title}
@@ -120,32 +129,20 @@ const HeroComponent = (props) => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: colors.background,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  // infoBox: {
-  //   flexWrap: 'wrap',
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   width: 400,
-  // },
   image: {
-    width: 200,
-    height: 100,
+    width: '100%',
+    height: 150,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
   },
-  text: {
+  textContainer: {
     paddingLeft: 20,
     paddingBottom: 20,
   },
@@ -153,6 +150,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+  },
+  text: {
+    color: colors.text,
   },
 });
 

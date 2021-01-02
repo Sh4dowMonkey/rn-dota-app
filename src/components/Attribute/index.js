@@ -1,38 +1,22 @@
 // @flow
 
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
+import styles from './styles';
 
 const Attribute = (props) => {
   const colorIndicator = {
     backgroundColor: props.fill ? props.color : 'transparent',
     borderColor: props.color,
-    height: 30,
-    width: 30,
-    borderWidth: 1,
-    margin: 7,
-    transform: [{rotate: '45deg'}],
   };
 
   return (
     <View style={styles.attributes}>
-      <View style={colorIndicator} />
+      <View style={[styles.colorIndicator, colorIndicator]} />
       <Text style={styles.text}> {props.name} </Text>
       <Text style={styles.text}> {props.attributeStat} </Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  attributes: {
-    flexDirection: 'row',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    width: 100,
-  },
-});
 
 export default Attribute;

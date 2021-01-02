@@ -7,6 +7,7 @@ import {
   Pressable,
 } from 'react-native';
 import InfoBox from '../../components/InfoBox';
+import colors from '../../config/colors';
 
 const HeroListComponent = (props) => {
   return (
@@ -29,6 +30,7 @@ const HeroListComponent = (props) => {
                 title={item.localized_name}
                 stat={item.roles.join(', ')}
                 backgroundImage={{uri: 'https://api.opendota.com' + item.img}}
+                highlight={true}
               />
             </Pressable>
           )}
@@ -45,8 +47,9 @@ const styles = StyleSheet.create({
   },
   flatlist: {
     width: '100%',
+    backgroundColor: colors.background,
   },
-  contentContainerStyle: {alignItems: 'center'},
+  contentContainerStyle: {alignItems: 'center', paddingVertical: 30},
 });
 
 export default HeroListComponent;
